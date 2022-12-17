@@ -35,94 +35,103 @@ class HomePage extends StatelessWidget{
     return Scaffold(
       backgroundColor: Colors.blueGrey.shade200,
       body: SizedBox.expand(
-        child: SingleChildScrollView(
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.center,
-            children: [
-              Text("Task Manager"),
-              SizedBox(
-                height: 100,
-              ),
-              Text(
-                "December 19",
-                style: TextStyle(
-                  fontSize: 22,
-                  fontWeight: FontWeight.w600
-                )
-              ),
-              SizedBox(height: 20),
-              Padding(
-                padding: const EdgeInsets.all(16),
-                child: Container(
-                  width: double.infinity,
-                  padding: EdgeInsets.all(10),
-                  decoration: BoxDecoration(
-                    color: Colors.white,
-                    borderRadius: BorderRadius.circular(15)
-                  ),
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      TaskItem(),
-                      TaskItem(),
-                      TaskItem(),
-                      TaskItem(),
-                      TaskItem(),
-                      TaskItem(),
-                      TaskItem(),
-                      TaskItem(),
-                      TaskItem(),
-                      TaskItem(),
-                    ],
-                  ),
-                ),
-              ),
-              SizedBox(height: 20),
-              Row(
+        child: Stack(
+          children: [
+            Image.asset("assets/sky.jpeg"),
+            SingleChildScrollView(
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
+                  SizedBox(
+                    height: 20,
+                  ),
+                  Text("Task Manager", style:TextStyle(color: Colors.white),),
+                  SizedBox(
+                    height: 60,
+                  ),
+                  Text(
+                    "December 19",
+                    style: TextStyle(
+                      color: Colors.white,
+                      fontSize: 22,
+                      fontWeight: FontWeight.w600
+                    )
+                  ),
+                  SizedBox(height: 20),
                   Padding(
-                    padding: const EdgeInsets.only(left: 15.0),
-                    child: Text("Completed"),
-                  ),
-                ],
-              ),
-              Padding(
-                padding: const EdgeInsets.all(15.0),
-                child: Container(
-                  padding: EdgeInsets.all(10),
-                  width: double.infinity,
-                  decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(15),
-                    color: Colors.white
-                  ),
-                  child: Column(
-                    children: [
-                      TaskItem(),
-                      TaskItem(),
-                      TaskItem(),
-                    ],
-                  ),
-                ),
-              ),
-        
-              SizedBox(height: 30),
-              Padding(
-                padding: const EdgeInsets.only(left: 15.0, right: 15),
-                child: SizedBox(
-                  width: double.infinity,
-                  height: 40,
-                  child: TextButton(
-                    onPressed: (){},
-                    child: Text("Add Task"),
-                    style: TextButton.styleFrom(
-                      backgroundColor: Colors.blue.shade700,
-                      foregroundColor: Colors.white
+                    padding: const EdgeInsets.all(16),
+                    child: Container(
+                      width: double.infinity,
+                      padding: EdgeInsets.all(10),
+                      decoration: BoxDecoration(
+                        color: Colors.white,
+                        borderRadius: BorderRadius.circular(15)
+                      ),
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          TaskItem(),
+                          TaskItem(),
+                          TaskItem(),
+                          TaskItem(),
+                          TaskItem(),
+                          TaskItem(),
+                          TaskItem(),
+                          TaskItem(),
+                          TaskItem(),
+                          TaskItem(),
+                        ],
+                      ),
                     ),
                   ),
-                ),
-              )
-            ],
-          ),
+                  SizedBox(height: 20),
+                  Row(
+                    children: [
+                      Padding(
+                        padding: const EdgeInsets.only(left: 15.0),
+                        child: Text("Completed"),
+                      ),
+                    ],
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.all(15.0),
+                    child: Container(
+                      padding: EdgeInsets.all(10),
+                      width: double.infinity,
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(15),
+                        color: Colors.white
+                      ),
+                      child: Column(
+                        children: [
+                          TaskItem(),
+                          TaskItem(),
+                          TaskItem(),
+                        ],
+                      ),
+                    ),
+                  ),
+            
+                  SizedBox(height: 30),
+                  Padding(
+                    padding: const EdgeInsets.only(left: 15.0, right: 15),
+                    child: SizedBox(
+                      width: double.infinity,
+                      height: 40,
+                      child: TextButton(
+                        onPressed: (){},
+                        child: Text("Add Task"),
+                        style: TextButton.styleFrom(
+                          backgroundColor: Colors.blue.shade700,
+                          foregroundColor: Colors.white
+                        ),
+                      ),
+                    ),
+                  )
+                ],
+              ),
+            ),
+          ],
         ),
       )
     );
