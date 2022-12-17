@@ -33,7 +33,7 @@ class HomePage extends StatelessWidget{
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.grey.shade100,
+      backgroundColor: Colors.blueGrey.shade200,
       body: SizedBox.expand(
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.center,
@@ -56,31 +56,44 @@ class HomePage extends StatelessWidget{
                 width: double.infinity,
                 padding: EdgeInsets.all(10),
                 decoration: BoxDecoration(
-                  color: Colors.red,
+                  color: Colors.white,
                   borderRadius: BorderRadius.circular(15)
                 ),
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    Row(
-                      children: [
-                        CircleAvatar(
-                          radius: 20,
-                          backgroundColor: Colors.green,
-                          child: Icon(
-                            Icons.place
-                          ),
-                        ),
-                        SizedBox(width: 10),
-                        Text("Task 1"),
-                        Spacer(),
-                        Checkbox(
-                          value: false,
-                          onChanged: null
-                        )
-                      ],
-                    ),
-                    Text("Task 2")
+                    TaskItem(),
+                    TaskItem(),
+                    TaskItem(),
+                    TaskItem(),
+                    TaskItem(),
+                  ],
+                ),
+              ),
+            ),
+            SizedBox(height: 20),
+            Row(
+              children: [
+                Padding(
+                  padding: const EdgeInsets.only(left: 15.0),
+                  child: Text("Completed"),
+                ),
+              ],
+            ),
+            Padding(
+              padding: const EdgeInsets.all(15.0),
+              child: Container(
+                padding: EdgeInsets.all(10),
+                width: double.infinity,
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(15),
+                  color: Colors.white
+                ),
+                child: Column(
+                  children: [
+                    TaskItem(),
+                    TaskItem(),
+                    TaskItem(),
                   ],
                 ),
               ),
@@ -88,6 +101,37 @@ class HomePage extends StatelessWidget{
           ],
         ),
       )
+    );
+  }
+}
+
+class TaskItem extends StatelessWidget {
+  const TaskItem({
+    Key? key,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Padding(
+      padding: const EdgeInsets.only(top: 5, bottom: 5),
+      child: Row(
+        children: [
+          CircleAvatar(
+            radius: 20,
+            backgroundColor: Colors.green,
+            child: Icon(
+              Icons.place
+            ),
+          ),
+          SizedBox(width: 10),
+          Text("Task 1"),
+          Spacer(),
+          Checkbox(
+            value: false,
+            onChanged: null
+          )
+        ],
+      ),
     );
   }
 }
